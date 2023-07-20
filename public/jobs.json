@@ -1,0 +1,29 @@
+[
+  {
+    "date": "20 May, 2023",
+    "company": "Amazon",
+    "position": "Senior UI/UX Designer",
+    "tags": ["Part Time", "Senior Level", "Distant", "Project Work"],
+    "rate": 260,
+    "location":"San Francisco, CA",
+    "color": "#d0e395"
+  },
+  {
+    "date": "4 February, 2023",
+    "company": "Google",
+    "position": "Junior UI/UX Designer",
+    "tags": ["Full time", "Junior level", "Distant", "Project work", "Flexible schedule"],
+    "rate": 150,
+    "location":"California, CA",
+    "color": "#8db8ff"
+  },
+  {
+    "date": "29 January, 2023",
+    "company": "Dribbble",
+    "position": "Senior Motion Designer",
+    "tags": ["Part Time", "Senior Level", "Full Day", "Shift Work"],
+    "rate": 260,
+    "location":"New York, NY",
+    "color": "#d9abd3"
+  }
+]
