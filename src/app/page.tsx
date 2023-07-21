@@ -10,6 +10,7 @@ import { CardProps } from '@/models/Interfaces';
 export default function Home() {
   const [jobs, setJobs] = useState<CardProps[]>()
   const [navigation, setNavigation] = useState([])
+  const [formData, setFormData] = useState()
   
   const fetchJobs = async (signal: AbortSignal) => {
     const data = await getJobs(signal)
@@ -29,6 +30,10 @@ export default function Home() {
     };
   }, []);
 
+  const sidebarForm = (data) => {
+    setFormData(data)
+    console.log(data)
+  }
 
   return (
     <main >
@@ -36,7 +41,7 @@ export default function Home() {
       <Filters />
       <div id="content" className='flex gap-10 pt-10'>
         <div className='w-1/6'>
-          <Sidebar />
+          <Sidebar data={sidebarForm}/>
         </div>
         <div className='w-5/6'>
             <CardList cards={jobs}/>
