@@ -9,7 +9,7 @@ export default function Sidebar({data}) {
         const formData = new FormData(event.target)
         data(formData)
     }
-    
+
     return (
         <div>
             <div className="bg-black rounded-3xl p-4 ">

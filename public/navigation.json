@@ -3,30 +3,5 @@
     "id": 1,
     "name": "Home",
     "link": "/"
-  },
-  {
-    "id": 2,
-    "name": "Find Jobs",
-    "link": "/test"
-  },
-  {
-    "id": 3,
-    "name": "Messages",
-    "link": "/messages"
-  },
-    {
-    "id": 4,
-    "name": "Hiring",
-    "link": "/hiring"
-  },
-    {
-    "id": 5,
-    "name": "Community",
-    "link": "/community"
-  },
-    {
-    "id": 6,
-    "name": "FAQ",
-    "link": "/faq"
   }
 ]

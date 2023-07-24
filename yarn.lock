@@ -531,6 +531,11 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
+multi-range-slider-react@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/multi-range-slider-react/-/multi-range-slider-react-2.0.3.tgz#f28233a23bb6711c854c5bf776493cb50b90c66f"
+  integrity sha512-mMjrVO9rP9uRMHq61MHNmiet5NxCMblrZwX9zEcqNBCguGXdSNlrhQfeluCy9ICpq7NOT9cKn+RhANrB5TBLkQ==
+
 mz@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/mz/-/mz-2.7.0.tgz#95008057a56cafadc2bc63dde7f9ff6955948e32"
