@@ -15,17 +15,6 @@ export default function Home() {
   const [from, setFrom] = useState<number>()
   const [to, setTo] = useState<number>()
   
-  const fetchJobs = async (signal: AbortSignal) => {
-    const data = await getJobs(signal)
-    setCurrJobs(data)
-    setJobs(data)
-  }
-
-  const fetchNavigation = async (signal: AbortSignal) => {
-    const data = await getNavigation(signal)
-    setNavigation(data)
-  }
-
   useEffect(() => {
     let controller = new AbortController()
     fetchJobs(controller.signal)
@@ -41,6 +30,30 @@ export default function Home() {
     setCurrJobs(jobs?.filter(obj => obj.rate >= from && obj.rate <= to))
   }, [from, to]);
 
+  
+  const fetchJobs = async (signal: AbortSignal) => {
+    const data = await getJobs(signal)
+    setCurrJobs(data)
+    setJobs(data)
+  }
+
+  const fetchNavigation = async (signal: AbortSignal) => {
+    const data = await getNavigation(signal)
+    setNavigation(data)
+  }
+
+
+  const getMaxRate = () => {
+    return jobs?.reduce(function(prev, current) {
+      return (prev.rate > current.rate) ? prev : current
+    })
+  }
+  const getMinRate = () => {
+    return jobs?.reduce(function(prev, current) {
+      return (prev.rate < current.rate) ? prev : current
+    })
+  }
+
   const sidebarForm = (data) => {
     setFormData(data)
     // Do stuff with the form data here e.g. send a POST request
@@ -50,21 +63,14 @@ export default function Home() {
   }
 
   const filters = (from, to) => {
-    //Find the maximum and minimum salary in the data
-    const max = jobs?.reduce(function(prev, current) {
-      return (prev.rate > current.rate) ? prev : current
-    })
-    const min = jobs?.reduce(function(prev, current) {
-      return (prev.rate < current.rate) ? prev : current
-    })
-    setFrom(Math.ceil(min.rate * (from/100)))
-    setTo(Math.ceil(max.rate * (to/100)))
+    setFrom(from)
+    setTo(to)
   }
 
   return (
     <main>
       <Navbar navItems={navigation} location='NY New York'/>
-      <Filters data={filters} from={from} to={to}/>
+      <Filters data={filters} from={getMinRate()?.rate} to={getMaxRate()?.rate}/>
       <div id="content" className='flex gap-10 pt-10'>
         <div className='w-1/6'>
           <Sidebar data={sidebarForm}/>

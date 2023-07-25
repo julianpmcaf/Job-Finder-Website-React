@@ -1,10 +1,13 @@
 import { FaSearch, FaSearchLocation, FaBriefcase, FaDollarSign, FaAngleDown } from "react-icons/fa";
-import { useEffect } from 'react';
+import { useState } from 'react';
 import MultiRangeSlider from "multi-range-slider-react";
 
 export default function Filters({from, to, data}) {
-
+    const [currMin, setCurrMin] = useState(from)
+    const [currMax, setCurrMax] = useState(to)
     const handleInput = (e) => {
+        setCurrMin(e.minValue)
+        setCurrMax(e.maxValue)
         data(e.minValue, e.maxValue)
     };
     return (
@@ -44,12 +47,14 @@ export default function Filters({from, to, data}) {
                             Salary Range
                         </p>
                         <p className="text-white w-5/12">
-                            {from} - {to}
+                            {currMin} - {currMax}
                         </p>
                     </div>
                    
                     <MultiRangeSlider
-                        style={{border:"none", marginLeft: "10px", boxShadow: "none"}}
+                        style={{ border: "none", marginLeft: "10px", boxShadow: "none" }}
+                        min={from}
+                        max={to}
                         ruler={false}
                         label={false}
                         onInput={(e) => {
