@@ -12,8 +12,8 @@ export default function Home() {
   const [currJobs, setCurrJobs] = useState<CardProps[]>()
   const [navigation, setNavigation] = useState([])
   const [formData, setFormData] = useState()
-  const [from, setFrom] = useState(0)
-  const [to, setTo] = useState(100)
+  const [from, setFrom] = useState<number>()
+  const [to, setTo] = useState<number>()
   
   const fetchJobs = async (signal: AbortSignal) => {
     const data = await getJobs(signal)
@@ -36,6 +36,8 @@ export default function Home() {
   }, []);
   
   useEffect(() => {
+    console.log(from)
+    console.log(to)
     setCurrJobs(jobs?.filter(obj => obj.rate >= from && obj.rate <= to))
   }, [from, to]);
 
@@ -48,13 +50,13 @@ export default function Home() {
   }
 
   const filters = (from, to) => {
+    //Find the maximum and minimum salary in the data
     const max = jobs?.reduce(function(prev, current) {
       return (prev.rate > current.rate) ? prev : current
     })
     const min = jobs?.reduce(function(prev, current) {
       return (prev.rate < current.rate) ? prev : current
     })
-    
     setFrom(Math.ceil(min.rate * (from/100)))
     setTo(Math.ceil(max.rate * (to/100)))
   }

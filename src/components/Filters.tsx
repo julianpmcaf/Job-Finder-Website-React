@@ -1,5 +1,5 @@
 import { FaSearch, FaSearchLocation, FaBriefcase, FaDollarSign, FaAngleDown } from "react-icons/fa";
-import { useState } from 'react';
+import { useEffect } from 'react';
 import MultiRangeSlider from "multi-range-slider-react";
 
 export default function Filters({from, to, data}) {
@@ -50,19 +50,13 @@ export default function Filters({from, to, data}) {
                    
                     <MultiRangeSlider
                         style={{border:"none", marginLeft: "10px", boxShadow: "none"}}
-                        min={0}
-                        max={100}
                         ruler={false}
                         label={false}
-                        minValue={from}
-                        maxValue={to}
                         onInput={(e) => {
                             handleInput(e);
                         }}
                         barInnerColor="#95CFF6"
-                        
-                        
-                        />
+                    />
                 
                 </div>
             </div>
